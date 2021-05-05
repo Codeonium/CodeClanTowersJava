@@ -60,5 +60,12 @@ public class Hotel {
     public int bookingCount() {
         return bookings.size();
     }
+
+    public double totalBill(Booking booking) {
+        Bedroom bedroom = booking.getBedroom();
+        int nights = booking.getNumberOfNights();
+        double nightlyRate = bedroom.getRate();
+        return nights * nightlyRate;
+    }
 }
 

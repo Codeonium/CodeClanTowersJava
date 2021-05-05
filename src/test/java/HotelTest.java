@@ -15,6 +15,7 @@ public class HotelTest {
     private Guest guest1;
     private Guest guest2;
     private Guest guest3;
+    private Booking booking;
 
     @Before
     public void setUp() {
@@ -28,6 +29,7 @@ public class HotelTest {
         guest1 = new Guest("Malcolm");
         guest2 = new Guest("Zsolt");
         guest3 = new Guest("Chris");
+        booking = new Booking(bedroom1,2);
         hotel.addBedroom(bedroom1);
         hotel.addBedroom(bedroom2);
         hotel.addBedroom(bedroom3);
@@ -96,6 +98,11 @@ public class HotelTest {
         hotel.bookRoom(bedroom1, 4);
 //        assertEquals();
         assertEquals(1, hotel.bookingCount());
+    }
+
+    @Test
+    public void canReturnBill() {
+        assertEquals(200, hotel.totalBill(booking))
     }
 }
 
