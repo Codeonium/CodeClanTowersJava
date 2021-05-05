@@ -19,9 +19,9 @@ public class HotelTest {
     @Before
     public void setUp() {
         hotel = new Hotel("CodeClan Towers");
-        bedroom1 = new Bedroom(12, 2, "Double");
-        bedroom2 = new Bedroom(15, 1, "Single");
-        bedroom3 = new Bedroom(30, 2, "Suite");
+        bedroom1 = new Bedroom(12, 2, "Double", 100);
+        bedroom2 = new Bedroom(15, 1, "Single", 60);
+        bedroom3 = new Bedroom(30, 2, "Suite", 150);
         conferenceRoom1 = new ConferenceRoom(50, "E47");
         conferenceRoom2 = new ConferenceRoom(40, "Salmon Party");
         conferenceRoom3 = new ConferenceRoom(60, "Bye Bye Party!");
@@ -53,7 +53,7 @@ public class HotelTest {
 
     @Test
     public void canAddBedrooms() {
-        Bedroom bedroom4 = new Bedroom(25, 4, "Family Suite");
+        Bedroom bedroom4 = new Bedroom(25, 4, "Family Suite", 150);
         hotel.addBedroom(bedroom4);
         assertEquals(4, hotel.bedroomCount());
     }
@@ -66,7 +66,7 @@ public class HotelTest {
     }
 
     @Test
-    public void canCheckinGuest(){
+    public void canCheckInGuest(){
         hotel.checkInGuestInBedroom(guest1, bedroom1);
         assertEquals(1, bedroom1.guestCount());
     }
@@ -91,5 +91,11 @@ public class HotelTest {
         assertEquals(0, conferenceRoom1.guestCount());
     }
 
+    @Test
+    public void canMakeABooking() {
+        hotel.bookRoom(bedroom1, 4);
+//        assertEquals();
+        assertEquals(1, hotel.bookingCount());
+    }
 }
 
